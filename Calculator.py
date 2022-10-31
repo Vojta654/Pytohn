@@ -1,9 +1,7 @@
-from cgitb import text
-
-
 print("Zadejte první číslo:")
 cis1 = int(input())
 text = str(cis1)
+
 while True:
     print("Zadejte zanménko:")
     zn = input()
