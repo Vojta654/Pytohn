@@ -25,7 +25,7 @@ while True:
     if command == "find":
         name = input("name: ")
         for i in range(0, len(names)):
-            if names[i]== name:
+            if names[i] == name:
                 print("The student was found")
 
     if command == "l":
@@ -77,7 +77,47 @@ while True:
         rozptyl = round(odchylka / len(heights), 2)
         print("Rozptyl je: " + str(rozptyl))
         print("Směrodatná odchylka je " + str(var))
+    if command == "sortlow":
 
+        for i in range(len(heights)):
+
+            for j in range(0, len(heights) - i - 1):
+
+                if heights[j] > heights[j + 1]:
+
+                    heights[j], heights[j + 1] = heights[j + 1], heights[j]
+                    names[j], names[j + 1] = names[j + 1], names[j]
+    if command == "sorttop":
+
+        for i in range(len(heights)):
+
+            for j in range(0, len(heights) - i - 1):
+
+                if heights[j] < heights[j + 1]:
+
+                    heights[j], heights[j + 1] = heights[j + 1], heights[j]
+                    names[j], names[j + 1] = names[j + 1], names[j]
+    if command == "sortnamea":
+
+        for i in range(len(names)):
+
+            for j in range(0, len(names) - i - 1):
+
+                if names[j] > names[j + 1]:
+
+                    heights[j], heights[j + 1] = heights[j + 1], heights[j]
+                    names[j], names[j + 1] = names[j + 1], names[j]
+
+    if command == "sortnamez":
+
+        for i in range(len(names)):
+
+            for j in range(0, len(names) - i - 1):
+
+                if names[j] < names[j + 1]:
+
+                    heights[j], heights[j + 1] = heights[j + 1], heights[j]
+                    names[j], names[j + 1] = names[j + 1], names[j]
     if command == "?":
         print("a = add new student")
         print("d = delete student")
@@ -86,5 +126,10 @@ while True:
         print("max = print maximum height")
         print("min = print minimum height")
         print("avg = print average height")
+        print("sortlow = sort from lowest height")
+        print("sorttop = sort from highest height")
+        print("sortnamea = sort names from a")
+        print("sortnamez = sort names from z")
+
     if command == "end":
         exit()
