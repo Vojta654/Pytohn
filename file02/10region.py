@@ -36,4 +36,7 @@ print(regions)
 
 file = open("data/okresy.csv", "w")
 for region in regions:
-
+    name = region[0]
+    percent = region[1]
+    file.write(name + ";" + str(round(percent, 2)) + "\n")
+file.close()
