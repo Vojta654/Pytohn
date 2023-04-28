@@ -1,5 +1,5 @@
 import pygame
-BOARD_SZE = 20
+BOARD_SIZE = 20
 SQUARE_SIZE = 30
 SQUARE_COLOR = (220, 220, 220)
 SQUARE_HOVER_COLOR = (150, 150, 150)
@@ -8,16 +8,16 @@ CROSS_COLOR = (0, 0, 255)
 
 
 board = []
-for y in range(0, BOARD_SZE, 1):
+for y in range(0, BOARD_SIZE, 1):
     row = []
-    for x in range(0, BOARD_SZE, 1):
+    for x in range(0, BOARD_SIZE, 1):
         row.append(0)
     board.append(row)
 
 current_square = (-1, -1)
 player_turn = 1
 
-window  = pygame.display.set_mode((BOARD_SZE*SQUARE_SIZE,BOARD_SZE*SQUARE_SIZE))
+window  = pygame.display.set_mode((BOARD_SIZE*SQUARE_SIZE,BOARD_SIZE*SQUARE_SIZE))
 
 
 def game_input():
@@ -51,8 +51,8 @@ def game_update():
 
 
 def game_output():
-    for y in range(0, BOARD_SZE, 1):
-        for x in range(0, BOARD_SZE, 1):
+    for y in range(0, BOARD_SIZE, 1):
+        for x in range(0, BOARD_SIZE, 1):
             if current_square == (x, y):
                 color = SQUARE_HOVER_COLOR
             else:
