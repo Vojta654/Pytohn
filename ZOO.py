@@ -1,4 +1,4 @@
-
+datum = 230502 #YYMMDD
 
 #typ vstupenky
 while True:
@@ -27,8 +27,8 @@ while True:
 
 #věk+ napsání ceny
 ages = []
-people_prizes = []
-people_codes = []
+people_prizes = [] #pole s postupně cenami vstupenek
+people_codes = [] #pole s postupně kody vstupenek
 prizes = [150, 300, 200, 600, 1800, 900]
 codes = [24, 11, 22, 44, 33, 42]
 final_price = 0
@@ -71,9 +71,7 @@ for customer in range(1, peope_num +1):
         print("Kategorie: dítě")
         print("Cena: 200")
 
-print(ages)
-print(people_prizes)
-print(people_codes)
+
 print("Celková cena je: " + str(final_price)  + " Kč")
 
 #platba
@@ -114,23 +112,29 @@ if money_recieved > final_price:
             returnuju_text += "50 Kč, "
             give_back -= 50
             
-print(returnuju_text)
+print(returnuju_text)# text, který zobrazí co vše bylo vráceno
+
 
 #tisk vstupenek
-
-print("Tisk vstupenek")
+print("\u0332".join("TISK VSTUPENEK"))
 for index in range(0, peope_num):
+    
+    #ciferný součet a dopočítání čísla aby součet byl děl 10
+    sum = 0
+    for digit in str(datum + index + 1 + people_codes[index]):
+        sum += int(digit)
+    y = 10-sum%10    
+    
     if people_prizes[index] == 200:
         kategorie = "| 1 DÍTĚ        |"
-        ticket_num = "230502" + str(people_codes[index]) + "0000"
     if people_prizes[index] == 300:
         kategorie = "| 1 DOSPĚLÝ     |"
-        ticket_num = "230502" + str(people_codes[index]) + "0000"
     if people_prizes[index] == 150:
         kategorie = "| 1 DŮCHODCI    |"
-        ticket_num = "230502" + str(people_codes[index]) + "0000"
+        
+    ticket_num = str(datum) + str(people_codes[index]) +  (4- len(str(index+1))) * "0" + str(index+1) + str(y)
     print(17* "=")
     print("| ZOO Praha     |")
     print(kategorie)
-    print("| " + ticket_num + "  |")
+    print("| " + ticket_num + " |")
     print(17* "=")
